@@ -1,0 +1,262 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.screen {
+  width: 100%;
+  max-width: 420px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 36px 32px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Logo / Main Menu --- */
+.logo {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.logo-icon {
+  font-size: 56px;
+  margin-bottom: 12px;
+}
+
+.logo h1 {
+  font-size: 28px;
+  color: #1a1a2e;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.subtitle {
+  color: #888;
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* --- Card Header --- */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.card-header h2 {
+  font-size: 22px;
+  color: #1a1a2e;
+  font-weight: 700;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  background: #f0f0f0;
+  border-radius: 50%;
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.back-btn:hover {
+  background: #e0e0e0;
+}
+
+/* --- Form --- */
+.form-group {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid #ddd;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #222;
+  background: #fafafa;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+input:focus {
+  border-color: #0f3460;
+  box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.1);
+  background: #fff;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrapper input {
+  padding-right: 60px;
+}
+
+.toggle-pwd {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #0f3460;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.hint {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-top: 5px;
+}
+
+.field-msg {
+  display: block;
+  font-size: 12px;
+  margin-top: 5px;
+  min-height: 16px;
+  line-height: 1.4;
+}
+
+.field-msg.error {
+  color: #e53e3e;
+}
+
+.field-msg.success {
+  color: #38a169;
+}
+
+/* --- Buttons --- */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  transition: opacity 0.2s, transform 0.1s;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #0f3460, #1a6eb5);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-outline {
+  background: transparent;
+  color: #0f3460;
+  border: 2px solid #0f3460;
+}
+
+.btn-outline:hover {
+  background: #f0f5ff;
+}
+
+.full-width {
+  width: 100%;
+  margin-top: 8px;
+}
+
+/* --- Banners --- */
+.banner {
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.banner-success {
+  background: #f0fff4;
+  border: 1.5px solid #38a169;
+  color: #276749;
+}
+
+.banner-success strong {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.banner-error {
+  background: #fff5f5;
+  border: 1.5px solid #e53e3e;
+  color: #c53030;
+}
+
+.hidden {
+  display: none;
+}
+
+/* --- Footer link --- */
+.footer-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 13px;
+  color: #888;
+}
+
+.footer-link a {
+  color: #0f3460;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.footer-link a:hover {
+  text-decoration: underline;
+}

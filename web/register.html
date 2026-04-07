@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register - Chat App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="screen">
+    <div class="card">
+      <div class="card-header">
+        <a href="index.html" class="back-btn">&#8592;</a>
+        <h2>Create Account</h2>
+      </div>
+
+      <form id="registerForm" novalidate>
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" placeholder="Enter first name" required />
+          <span class="field-msg" id="firstNameMsg"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" placeholder="Enter last name" required />
+          <span class="field-msg" id="lastNameMsg"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="e.g. kyl_1" maxlength="5" required />
+          <span class="hint">Must contain an underscore (_) and be max 5 characters.</span>
+          <span class="field-msg" id="usernameMsg"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-wrapper">
+            <input type="password" id="password" placeholder="Create a password" required />
+            <button type="button" class="toggle-pwd" onclick="togglePassword('password', this)">Show</button>
+          </div>
+          <span class="hint">Min 8 chars, with uppercase, number &amp; special character.</span>
+          <span class="field-msg" id="passwordMsg"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="cellPhone">Cell Phone Number</label>
+          <input type="text" id="cellPhone" placeholder="e.g. +27831234567" required />
+          <span class="hint">Must include international country code (e.g. +27).</span>
+          <span class="field-msg" id="cellPhoneMsg"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary full-width">Register</button>
+      </form>
+
+      <div id="successBanner" class="banner banner-success hidden">
+        <strong>Registration Successful!</strong>
+        <p>Username successfully captured.<br/>Password successfully captured.<br/>Cell phone number successfully added.</p>
+        <a href="login.html" class="btn btn-outline" style="margin-top:12px;">Proceed to Login</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="validation.js"></script>
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const firstName = document.getElementById("firstName").value.trim();
+      const lastName  = document.getElementById("lastName").value.trim();
+      const username  = document.getElementById("username").value.trim();
+      const password  = document.getElementById("password").value;
+      const cellPhone = document.getElementById("cellPhone").value.trim();
+
+      let valid = true;
+
+      valid = validateRequired("firstName", "firstNameMsg", "First name is required.") && valid;
+      valid = validateRequired("lastName",  "lastNameMsg",  "Last name is required.")  && valid;
+      valid = validateUsername(username) && valid;
+      valid = validatePassword(password) && valid;
+      valid = validateCellPhone(cellPhone) && valid;
+
+      if (valid) {
+        sessionStorage.setItem("user", JSON.stringify({ firstName, lastName, username, password, cellPhone }));
+        document.getElementById("registerForm").classList.add("hidden");
+        document.getElementById("successBanner").classList.remove("hidden");
+      }
+    });
+  </script>
+</body>
+</html>
